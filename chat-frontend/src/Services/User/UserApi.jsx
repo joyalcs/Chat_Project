@@ -65,6 +65,17 @@ export const UserApi = createApi({
                 }
             }
         }),
+        showUsers: builder.query({
+            query: ({token}) => {
+                return {
+                    url: 'chat/users/',
+                    method: 'GET',
+                    headers: {
+                        'authorization': `Bearer ${token}`
+                    }
+                }
+            }
+        })
     })
 })
 
@@ -74,4 +85,5 @@ export const {
     useOtpVerifyMutation,
     useResetPasswordByEmailMutation,
     useSendEmailResetPasswordMutation,
+    useShowUsersQuery,
 } = UserApi
